@@ -14,6 +14,10 @@ public:
   }
   std::vector<Nodo *> getHijos() { return hijos; };
   std::string getEtiqueta() { return etiqueta; };
+  Nodo* agregarHijo(std::string etiqueta) {
+    Nodo* hijo = new Nodo(etiqueta);
+    return hijo;
+  };
   void listar() {
     if (etiqueta == "id" && !hijos.empty())
       std::cout << hijos.front()->getEtiqueta() << '\n';
