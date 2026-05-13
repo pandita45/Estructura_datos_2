@@ -1,10 +1,12 @@
-#include "src/pugixml.hpp"
-#include "tree.h"
+#include "pugixml.hpp"
+#include "tree.hpp"
 #include <filesystem>
+#include <iostream>
 #include <string>
 
 int main(int argc, char **argv) {
   if (argc == 1) {
+    std::cout << "XD\n";
     exit(-1);
   }
   char *ruta = argv[1];
@@ -64,7 +66,7 @@ int main(int argc, char **argv) {
       year->agregarHijo(xml.child_value("publication_year"));
     }
   }
-
-//francisco fuentealba pagame el almuerzo
-
+  for(auto n : arbol.listarPrecursores()){
+    std::cout << n << '\n';
+  }
 }
