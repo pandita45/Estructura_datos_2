@@ -14,6 +14,7 @@ int main(int argc, char **argv) {
   Nodo raiz = Nodo("root");
   arbol.raiz = &raiz;
 
+  //construir arbol
   for (const auto &archivo : std::filesystem::directory_iterator(ruta)) {
     if (!archivo.is_regular_file() || archivo.path().extension() != ".xml") {
       continue;
@@ -66,6 +67,7 @@ int main(int argc, char **argv) {
       year->agregarHijo(xml.child_value("publication_year"));
     }
   }
+
   for(auto n : arbol.listarPrecursores()){
     std::cout << n << '\n';
   }
